@@ -34,3 +34,7 @@ function randomColor(){
     }
     return colorCode;
 }
+
+//onclick on hex code copy
+//onclick on any other div the hex code is applied to that div
+//Can show name of color instead of hex code
