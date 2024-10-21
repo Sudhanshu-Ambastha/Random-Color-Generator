@@ -9,18 +9,23 @@ for(let i = 0; i <= 30; i++){
 let colorContainerDiv = document.querySelectorAll(".color-container");
 console.log(colorContainerDiv);
 
-generateColors();
+generateShapesAndColors();
 
-function generateColors(){
+function generateShapesAndColors() {
     colorContainerDiv.forEach((element) => {
         let newColor = randomColor();
+        let shapeType = randomShape();
+
         element.style.backgroundColor = "#" + newColor;
         element.style.display = "inline-block";
-        element.style.borderRadius = "5px";
         element.style.height = "75px";
         element.style.width = "75px";
         element.style.margin = "5px";
+        element.style.borderRadius = shapeType; // Random shape
         element.innerText = "#" + newColor;
+        element.style.textAlign = "center";
+        element.style.lineHeight = "75px"; // Center the text vertically
+        element.style.color = "#fff"; // Make the text readable on any background
     });
 }
 
@@ -34,6 +39,14 @@ function randomColor(){
     }
     return colorCode;
 }
+
+function randomShape() {
+    // Randomly return "0px" for square, "5px" for rounded square, or "50%" for circle
+    let shapes = ["0px", "5px", "50%"];
+    let randomIndex = Math.floor(Math.random() * shapes.length);
+    return shapes[randomIndex];
+}
+
 
 //onclick on hex code copy
 //onclick on any other div the hex code is applied to that div
